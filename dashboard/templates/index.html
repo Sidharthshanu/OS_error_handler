@@ -1,0 +1,26 @@
+<!-- File: dashboard/templates/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Error Logs</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ccc; overflow-x: auto; }
+      nav { margin-bottom: 20px; }
+      nav a { margin-right: 15px; text-decoration: none; color: #007BFF; }
+      nav a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Logs</a>
+      <a href="/stats">Statistics</a>
+    </nav>
+    <h1>Recent Error Logs</h1>
+    <pre>
+{% for line in logs %}
+{{ line }}
+{% endfor %}
+    </pre>
+  </body>
+</html>

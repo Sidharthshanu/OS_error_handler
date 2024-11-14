@@ -1,0 +1,35 @@
+<!-- File: dashboard/templates/stats.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Error Statistics</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      nav { margin-bottom: 20px; }
+      nav a { margin-right: 15px; text-decoration: none; color: #007BFF; }
+      nav a:hover { text-decoration: underline; }
+      table { width: 50%; border-collapse: collapse; }
+      th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+      th { background-color: #f2f2f2; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Logs</a>
+      <a href="/stats">Statistics</a>
+    </nav>
+    <h1>Error Statistics</h1>
+    <table>
+      <tr>
+        <th>Error Type</th>
+        <th>Count</th>
+      </tr>
+      {% for error, count in stats.items() %}
+      <tr>
+        <td>{{ error }}</td>
+        <td>{{ count }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
