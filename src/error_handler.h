@@ -6,6 +6,7 @@ typedef enum {
     MEMORY_ERROR,
     FILE_ACCESS_ERROR,
     DEVICE_ERROR,
+    NULL_ERROR,       // Added NULL_ERROR for null pointer dereference
     UNKNOWN_ERROR
 } ErrorType;
 
