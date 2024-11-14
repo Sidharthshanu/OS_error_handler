@@ -30,6 +30,8 @@ def stats():
             stats_counter['FILE_ACCESS_ERROR'] += 1
         elif "DEVICE_ERROR" in line:
             stats_counter['DEVICE_ERROR'] += 1
+        elif "NULL_ERROR" in line:
+            stats_counter['NULL_ERROR'] += 1
         else:
             stats_counter['UNKNOWN_ERROR'] += 1
     return render_template('stats.html', stats=stats_counter)

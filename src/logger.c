@@ -5,6 +5,7 @@
 #include <pthread.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <errno.h>
 
 #define LOG_FILE "logs/error_log.log"
 #define MAX_LOG_SIZE 5242880 // 5MB
@@ -29,6 +30,8 @@ const char* error_type_to_string(ErrorType type) {
             return "FILE_ACCESS_ERROR";
         case DEVICE_ERROR:
             return "DEVICE_ERROR";
+        case NULL_ERROR:
+            return "NULL_ERROR";
         default:
             return "UNKNOWN_ERROR";
     }
@@ -49,8 +52,18 @@ void rotate_logs_if_needed() {
     }
 }
 
+void ensure_log_directory_exists() {
+    struct stat st = {0};
+    if (stat("logs", &st) == -1) {
+        if (mkdir("logs", 0755) != 0 && errno != EEXIST) {
+            fprintf(stderr, "Failed to create logs directory: %s\n", strerror(errno));
+        }
+    }
+}
+
 void log_error(ErrorType type, const char *message, int error_code) {
     pthread_mutex_lock(&log_mutex);
+    ensure_log_directory_exists();
     rotate_logs_if_needed();
     FILE *file = fopen(LOG_FILE, "a");
     if (!file) {
