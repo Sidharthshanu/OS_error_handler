@@ -4,8 +4,8 @@
 #include <string.h>
 
 // Define recipient and sender email
-#define RECIPIENT_EMAIL "admin@example.com"
-#define SENDER_EMAIL "os_error_handler@example.com"
+#define RECIPIENT_EMAIL "b22cs004@iitj.ac.in"
+#define SENDER_EMAIL "advaitgaur2003@gmail.com"
 
 // Function to send email using sendmail
 void send_email(const char *subject, const char *body) {
