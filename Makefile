@@ -27,6 +27,11 @@ simulate_file_error: $(SIM_DIR)/simulate_file_error.c $(SRC_FILES)
 
 simulate_device_error: $(SIM_DIR)/simulate_device_error.c $(SRC_FILES)
 	$(CC) $(CFLAGS) $(SIM_DIR)/simulate_device_error.c $(SRC_FILES) -o $(BUILD_DIR)/simulate_device_error
+	$(CC) $(SIM_DIR)/sleep.c -o $(BUILD_DIR)/sleep
+	touch $(BUILD_DIR)/access.txt
+	chmod -wx $(BUILD_DIR)/access.txt
+
+
 
 clean:
 		rm -rf $(BUILD_DIR)/*
