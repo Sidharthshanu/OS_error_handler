@@ -7,7 +7,10 @@ typedef enum {
     FILE_ACCESS_ERROR,
     DEVICE_ERROR,
     NULL_ERROR,       // Added NULL_ERROR for null pointer dereference
-    UNKNOWN_ERROR
+    UNKNOWN_ERROR,
+    TXT_BUSY, // Added new Device errors
+    DEVICE_ERROR_ACCESS_FAILURE,
+    DEVICE_BUSY
 } ErrorType;
 
 // Function to handle errors
