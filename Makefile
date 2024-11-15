@@ -29,8 +29,9 @@ simulate_device_error: $(SIM_DIR)/simulate_device_error.c $(SRC_FILES)
 	$(CC) $(CFLAGS) $(SIM_DIR)/simulate_device_error.c $(SRC_FILES) -o $(BUILD_DIR)/simulate_device_error
 	$(CC) $(SIM_DIR)/sleep.c -o $(BUILD_DIR)/sleep
 	touch $(BUILD_DIR)/access.txt
-	chmod -wx $(BUILD_DIR)/access.txt
-	touch $(BUILD_DIR)/example.lock
+	chmod 444 $(BUILD_DIR)/access.txt
+  touch $(BUILD_DIR)/example.lock
+
 
 
 
