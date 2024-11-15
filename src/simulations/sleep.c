@@ -7,7 +7,7 @@
 #include <sys/file.h>
 
 int main(void) {
-    int fd = open("example.lock", O_CREAT | O_RDWR);
+    int fd = open("build/example.lock", O_CREAT | O_RDWR);
     if (fd == -1) {
         perror("");
         printf("%d",errno);
