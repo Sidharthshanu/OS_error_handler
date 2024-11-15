@@ -9,7 +9,8 @@
 int main(void) {
     int fd = open("example.lock", O_CREAT | O_RDWR);
     if (fd == -1) {
-        perror("open");
+        perror("");
+        printf("%d",errno);
         return 1;
     }
 

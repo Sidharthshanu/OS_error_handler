@@ -73,7 +73,6 @@ int main(int argc, char *argv[]) {
             printf("Simulating device access error DEVICE_ACCESS_FAILURE\n");
             fd = open("build/example.lock", O_RDWR);
             
-            int fd = open("example.lock", O_RDWR);
             if (fd == -1) {
                 perror("open");
                 return 1;
