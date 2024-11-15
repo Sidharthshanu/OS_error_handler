@@ -7,6 +7,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <errno.h>   // Added for ETXTBSY and other errno macros
+#include <fcntl.h>   // Added for LOCK_EX, LOCK_NB, LOCK_UN
 
 void handle_error(ErrorType type, const char *message, int error_code) {
     // Log the error
