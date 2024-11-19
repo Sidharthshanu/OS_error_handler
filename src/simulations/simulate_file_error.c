@@ -58,7 +58,9 @@ int main(int argc, char *argv[]) {
         case 4:
             printf("Simulating file access error BAD_FILE_DESCRIPTOR\n");
             fd = open("/build/sleep", O_RDONLY);
-            if (fd == -1 && errno == EBADF) {
+    
+            int ret = ioctl(fd, MY_IOCTL_CMD, NULL);
+            if (ret == -1 && errno == EBADF) {
                 handle_error(BAD_FILE_DESCRIPTOR, strerror(errno), errno);
             }
 
